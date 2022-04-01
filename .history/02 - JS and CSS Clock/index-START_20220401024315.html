@@ -64,12 +64,11 @@
       </style>
 
       <script>
-         //continue video at 7:40, solve for minutes and hours first
          const secondHand = document.querySelector(".second-hand");
          const SetDate = () => {
             const now = new Date();
             const seconds = now.getSeconds();
-            const secondsDegrees = (seconds / 60) * 360 + 90;
+            const secondsDegrees = (seconds / 60) * 360;
             secondHand.style.transform = `rotate(${secondsDegrees}deg`;
             console.log(seconds);
          };
