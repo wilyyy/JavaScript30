@@ -68,6 +68,7 @@
             audio.play(); //plays <audio> element
             key.classList.add("playing");
          };
+         window.addEventListener("keydown", PlaySound);
 
          function RemoveTransition(e) {
             if (e.propertyName !== "transform") return; //skip if its not a transform
@@ -78,9 +79,6 @@
 
          //for each element in the array, run function remove transition on transition end
          keys.forEach((key) => key.addEventListener("transitionend", RemoveTransition));
-
-         //event lister to run PlaySound on keydown in the window
-         window.addEventListener("keydown", PlaySound);
       </script>
    </body>
 </html>

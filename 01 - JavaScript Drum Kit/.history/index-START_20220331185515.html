@@ -56,31 +56,12 @@
       <audio data-key="76" src="sounds/tink.wav"></audio>
 
       <script>
-         const PlaySound = (e) => {
+         window.addEventListener("keydown", (e) => {
             //get audio ref using query selector
             const audio = document.querySelector(`audio[data-key="${e.keyCode}"`);
-            //get corresponding key
-            const key = document.querySelector(`.key[data-key="${e.keyCode}`);
-
             if (!audio) return; //if audio doesnt exist stop function here
-
-            audio.currentTime = 0;
-            audio.play(); //plays <audio> element
-            key.classList.add("playing");
-         };
-
-         function RemoveTransition(e) {
-            if (e.propertyName !== "transform") return; //skip if its not a transform
-            this.classList.remove("playing"); //remove playing class from "this" class
-         }
-
-         const keys = document.querySelectorAll(".key"); //grab all elements with class key
-
-         //for each element in the array, run function remove transition on transition end
-         keys.forEach((key) => key.addEventListener("transitionend", RemoveTransition));
-
-         //event lister to run PlaySound on keydown in the window
-         window.addEventListener("keydown", PlaySound);
+            audio.play();
+         });
       </script>
    </body>
 </html>
